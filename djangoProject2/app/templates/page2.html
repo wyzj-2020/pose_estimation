@@ -1,0 +1,30 @@
+{%  extends 'layout.html' %}
+{% block content %}
+
+
+<div align="center" >
+     <form class="upload-form"  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" style="border: 0.5px solid #33A1B9; color: #33A1B9" name="file" title="请上传文件" id="fileInput"onclick="dispearFun()">
+        <input type="submit" value="上传" >
+        <p class="warning" id="warn" style="color: #c9302c">{{ content }}</p>
+    </form>
+
+        <div class="videoSection" align="center">
+            <img id="video" width="850" height="580" style="border:0.5px solid #33A1B9" src="{{ content2 }}" alt="" >
+        </div>
+        <div>{{ content3 }}</div>
+</div>
+
+
+{% endblock %}
+{%  block js %}
+    <script>
+        function dispearFun(){
+            console.log("---")
+            document.getElementById("warn").innerHTML=" ";
+        }
+
+    </script>
+{% endblock %}
+

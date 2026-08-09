@@ -1,0 +1,104 @@
+# ===========================
+# IDE & Editor
+# ===========================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===========================
+# Python
+# ===========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+*.manifest
+*.spec
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ===========================
+# Django
+# ===========================
+db.sqlite3
+*.log
+local_settings.py
+
+# ===========================
+# OpenPose — binary distribution
+# ===========================
+openpose/bin/
+openpose/pyopenpose.exp
+openpose/pyopenpose.lib
+openpose/models/wget-log
+
+# ===========================
+# Model weights (large binary files)
+# ===========================
+*.caffemodel
+*.pt
+*.pth
+*.h5
+*.onnx
+*.pb
+
+# ===========================
+# DLL & compiled binaries
+# ===========================
+*.dll
+*.pyd
+*.exe
+*.lib
+*.exp
+*.tlog/
+
+# ===========================
+# Media & fonts (large/test files)
+# ===========================
+*.mp4
+*.avi
+*.mov
+*.mkv
+Monaco.ttf
+
+# ===========================
+# Temporary / work directories
+# ===========================
+work_dir/
+tmp/
+cache/
+data/
+config_v0/*
+backup/*
+
+# ===========================
+# Jupyter
+# ===========================
+.ipynb_checkpoints/
+
+# ===========================
+# OS files
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# Coverage / tests
+# ===========================
+htmlcov/
+.coverage
+.coverage.*
+.cache
+.hypothesis/
+.mypy_cache/

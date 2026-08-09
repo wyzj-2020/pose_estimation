@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+    <h2>Media Files</h2>
+    {% for file in file_list %}
+        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+

@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>姿态估计--视频监控系统</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-size: cover; /* 让背景图填满容器 */
+            background-image: url({% static 'img/2.webp' %});
+
+        }
+        .top-section {
+            height: 1.5cm; /* 设置顶部块的高度为 3 厘米 */
+            {#background-color: #000080; /* 深蓝色背景 */#}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .top-section h1 {
+            color: #ffffff;/* 白色文字 */
+            font-size: 28px;
+            font-family: '宋体', serif;
+        }
+        .page-content{
+           height:calc(100vh - 1.5cm);
+        }
+
+        .menu-section{
+            margin-top: 30px;
+            border: 0.1px solid #33A1B9;
+            {#border: #28a0e5;#}
+            height: calc(100vh - 2.5cm);
+            margin-left: 20px;
+            width: 6cm; /* 左侧菜单栏宽度为 5cm */
+            float: left; /* 左浮动 */
+            overflow: auto; /* 如果内容超出菜单栏高度，则显示滚动条 */
+        }
+        .menu-section ul{
+            list-style-type: none;
+            padding: 20px;
+        }
+        .menu-section li{
+            margin-left: 5px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            font-size: 15px;
+            font-family: 'fangsong';
+        }
+
+
+        /* 设置关闭按钮的样式 */
+        .close-btn {
+            position: absolute; /* 将关闭按钮相对于浮动界面定位 */
+            top: 10px; /* 设置按钮距离顶部的距离 */
+            right: 10px; /* 设置按钮距离右侧的距离 */
+            cursor: pointer; /* 设置鼠标样式为手型 */
+        }
+        .upload-form {
+            display: inline-block;
+            {#float: left; /* 左浮动 */#}
+
+        }
+
+        .upload-form input[type="file"],
+        .upload-form input[type="submit"] {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 15px;
+            font-size: 15px;
+            cursor: pointer; /* 设置鼠标样式为手型 */
+
+            {#background-color: #28a0e5;#}
+        }
+        .bottom-section {
+            padding-top: 20px;
+            {#background-size: cover; /* 让背景图填满容器 */#}
+            {#background-color: #ffffff; /* 白色背景 */#}
+            height: calc(100vh - 1.5cm); /* 设置底部块的高度为视口高度减去 3 厘米 */
+            display: flex;
+            justify-content: center;
+            {#align-items: center;#}
+            align-content: center;
+        }
+
+        .navbar-header{
+            align-content: center;
+        }
+{#        {% block style %}{% endblock %}#}
+        /* 鼠标悬停下拉菜单项时的样式 */
+    </style>
+</head>
+<body>
+<div class="top-section">
+    <div class="container">
+        <div class="navbar-header">
+         <h1><a  href="/">姿 态 分 析 -- 视 频 监 控 系 统 </a></h1>
+        </div>
+{#        <div class="container">#}
+{#            <div class="right">#}
+        <div class="dropdown pull-right "style="position: relative;top:0.5cm" >
+              <a href="#" style="font-size: medium" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ username }} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="/privacy">个人资料</a></li>
+                  <li><a href="#">我的信息</a> </li>
+                  <li role="separator"class="divider"></li>
+                  <li><a href="/logout/">退出登录</a> </li>
+              </ul>
+            </div>
+
+    </div>
+</div>
+<div style="border: 1px solid #33A1B9"></div>
+<div class="page-content">
+    <div class="menu-section">
+{#            <div class="sidebar content-box" style="display: block;">#}
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li> <a href="/page1"><i class="glyphicon glyphicon-facetime-video"></i> 摄像头</a></li>
+                    <div style="border: 0.1px solid #C0C0C0"></div>
+                    <li> <a href="/pose/"><i class="glyphicon"></i> 姿态估计 </a></li>
+                    <li><a href="/pose_estimate/"><i class="glyphicon"></i> 行为识别 </a> </li>
+                    <li><a href="/page2"><i class="glyphicon glyphicon-collapse-up"></i> 文件上传</a></li>
+                </ul>
+{#            </div>#}
+
+    </div>
+        <div class="bottom-section" id="content"align="center">
+            {% block content %}{% endblock %}
+        </div>
+
+</div>
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.js' %}"></script>
+    {% block js %}{% endblock %}
+
+</body>
+</html>

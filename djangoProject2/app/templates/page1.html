@@ -1,0 +1,55 @@
+{%  extends 'layout.html' %}
+{% block content %}
+    <div class="row" align="center">
+        <div >
+            <img id="video" width="850" height="600" style="border:0.5px solid #33A1B9 "  src="{% url 'video_feed' %}" alt="Video Feed">
+        </div>
+{#        <div align="center ">#}
+{#            <button type="button"  id="record_btn" style="background-color: #4cae4c" onclick="btnAction()">开始识别</button>#}
+{##}
+{#        </div>#}
+{#    <div align="center">#}
+{#        <button type="button" id="img_btn" style="background-color: #2aabd2" onclick="img_btnAction()">截图</button>#}
+{#    </div>#}
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+    {#function btnAction(){#}
+    {#    console.log(this.isRecord)#}
+    {#    if (this.isRecord) {#}
+    {#        console.log("开始")#}
+    {#        window.location.reload();#}
+    {#    } else {#}
+    {#        console.log(this.isRecord);#}
+    {#        document.getElementById("record_btn").innerText = "结束识别";#}
+    {#        document.getElementById("record_btn").style.backgroundColor =#}
+    {#          "rgb(255 99 71)";#}
+    {#        document.getElementById("record_btn").style.color = "white";#}
+    {#        setTimeout(() => {#}
+    {#            this.isRecord=!this.isRecord;#}
+    {#            $("#video").attr("src",{% url 'video_process' %})#}
+    {#        },1000);#}
+    {#    }}#}
+    {#function img_btnAction() {#}
+    {#    const video = document.getElementById("video");#}
+    {#    const canvas=document.createElement('canvas');#}
+    {#    canvas.width=640;#}
+    {#    canvas.height=520;#}
+    {#    const ctx=canvas.getContext('2d');#}
+    {#    ctx.drawImage(video,0,0,640,520)#}
+    {#    const imageData=canvas.toDataURL('image/jpeg');#}
+    {#    $.ajax({#}
+    {#        url:'/save/image/',#}
+    {#        data:{imageData},#}
+    {#        type:'POST',#}
+    {#        success:function(res){#}
+    {#            console.log(res)#}
+    {#        }#}
+    {#    }#}
+    {##}
+    {#    )}#}
+    </script>
+
+{% endblock %}
+

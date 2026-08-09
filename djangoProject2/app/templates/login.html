@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-size: cover; /* 让背景图填满容器 */
+            background-image: url({% static 'img/background.png' %});
+
+        }
+        .account {
+            width: 400px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-shadow: 5px 5px 20px #aaa;
+            background-color: #FFFFFF;
+            margin-left: auto;
+            margin-right: 80px;
+            margin-top: 130px;
+            padding: 20px 40px;
+        }
+
+        .account h2 {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .already {
+            margin: 0 auto;
+            float: none;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="account">
+    <h2>用户登录</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label>用户名</label>
+            {{ form.username }}
+            <span style="color:red;">{{ form.username.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            {{ form.password }}
+            <span style="color: red;">{{ form.password.errors.0 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="id_code">图片验证码</label>
+            <div class="row">
+                <div class="col-xs-7">
+                    {{ form.code }}
+                    <span style="color: red;">{{ form.code.errors.0 }}</span>
+                </div>
+                <div class="col-xs-5">
+                    <img id="image_code" src="/image/code/" style="width: 125px;">
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="登 录" class="btn btn-primary">
+        <div class="already">
+            <p >没有账户？</p>
+            <a href="/register/">注册</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .edit-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .save-button {
+            background-color: #28a745;
+        }
+        .cancel-button {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+{#        <img src="profile_picture.jpg" alt="Profile Picture" class="profile-picture">#}
+        <div class="profile-info">
+            <label for="name">用户名:</label>
+            <span id="name">{{ name }}</span>
+        </div>
+        <div class="profile-info">
+            <label for="email">邮箱:</label>
+            <span id="email">{{ email }}</span>
+        </div>
+
+        <button class="edit-button" onclick="editProfile()">编辑</button>
+        <button class="save-button" onclick="saveProfile()">保存</button>
+        <button class="cancel-button" onclick="cancelEdit()">取消</button>
+    </div>
+
+    <script>
+        function editProfile() {
+            // 显示编辑表单，隐藏信息展示
+            document.getElementById('name').contentEditable = true;
+            document.getElementById('email').contentEditable = true;
+            document.querySelector('.edit-button').style.display = 'none';
+            document.querySelector('.save-button').style.display = 'inline-block';
+            document.querySelector('.cancel-button').style.display = 'inline-block';
+        }
+
+        function saveProfile() {
+            // 保存编辑的信息
+            // 这里可以通过 AJAX 请求将编辑的信息发送给后端进行保存
+            // 如果是实际项目，需要根据具体情况来实现保存功能
+            alert('信息已保存！');
+            // 重新加载页面或者更新页面数据
+            location.reload();
+        }
+
+        function cancelEdit() {
+            // 取消编辑，恢复原始信息
+            document.getElementById('name').contentEditable = false;
+            document.getElementById('email').contentEditable = false;
+            document.querySelector('.edit-button').style.display = 'inline-block';
+            document.querySelector('.save-button').style.display = 'none';
+            document.querySelector('.cancel-button').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
